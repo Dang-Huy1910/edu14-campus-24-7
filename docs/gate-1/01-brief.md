@@ -1,7 +1,7 @@
 # Brief Dự án: Campus 24/7 – Trợ lý AI Vận hành Học vụ
 
 > **Mã đề**: EDU-14 – AI Vận hành  
-> **Nhóm thực hiện**: Team EDU-14  
+> **Nhóm thực hiện**: Team EDU-14 (Đặng Quang Huy, Hoàng Quốc Dũng, Dương Xuân Vinh, Lê Trung Kiên)  
 > **Tài liệu chi tiết**: [PRD](02-prd.md) | [UI Flow](03-ui-flow.md)
 
 ---

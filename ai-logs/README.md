@@ -1,6 +1,6 @@
 # Quy ước Quản trị Nhật ký AI (AI Logs) – Campus 24/7
 
-> **Chủ trì**: Thành viên 2 (Kỹ sư Trí tuệ Nhân tạo)  
+> **Chủ trì**: Hoàng Quốc Dũng  
 > **Áp dụng**: Tất cả thành viên trong nhóm
 
 ---
@@ -18,7 +18,7 @@ Hệ thống AI Log nhằm minh bạch hóa cách thức nhóm sử dụng AI tr
 - **Tính xác thực**: Ghi lại cả những lần AI đưa ra câu trả lời sai hoặc bịa đặt và cách nhóm phát hiện, điều chỉnh.
 - **Định danh file**: Đặt tên file log theo cấu trúc:  
   `ai-logs/YYYY-MM-DD_<member>_<task-name>.md`  
-  *Ví dụ: `2026-09-18_TV2_rag-architecture-brainstorm.md`*
+  *Ví dụ: `2026-09-18_dung-hq_rag-architecture-brainstorm.md`*
 
 ---
 

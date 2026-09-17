@@ -44,6 +44,17 @@ edu14-campus-24-7/
 
 ---
 
+## 👥 Thành viên Dự án (Team EDU-14)
+
+| STT | Họ và Tên | Mã định danh | Discord | Nhiệm vụ phụ trách |
+|:---:|:---|:---:|:---:|:---|
+| 1 | **Đặng Quang Huy** | `02962` | `danghuy1910` | Phụ trách PRD, luồng tương tác người dùng & Quản lý chung |
+| 2 | **Hoàng Quốc Dũng** | `02523` | `adventurous_flamingo_43907` | Phụ trách luồng RAG, trích dẫn quy chế & Quản trị AI Log |
+| 3 | **Dương Xuân Vinh** | `02622` | `dv1600` | Phụ trách UI/UX, Wireframe & Đặc tả Kỹ thuật Dữ liệu/API |
+| 4 | **Lê Trung Kiên** | `02748` | `kien5258` | Phụ trách Cấu trúc Repo, Brief 1 trang & Tổng hợp nộp bài Gate 1 |
+
+---
+
 ## 🚀 Trạng thái & Kế hoạch Nộp bài
 
 - **Gate 1**: [Xem hồ sơ nộp bài Gate 1 tại đây](docs/gate-1/README.md)

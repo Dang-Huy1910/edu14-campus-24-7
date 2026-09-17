@@ -1,8 +1,8 @@
 # Tài liệu Yêu cầu Sản phẩm (PRD) – Campus 24/7
 
 > **Dự án**: Campus 24/7 – Trợ lý AI Vận hành Học vụ 24/7  
-> **Chủ trì hoàn thiện**: Thành viên 3 (Lead Product & Integration)  
-> **Đóng góp kỹ thuật**: Thành viên 1 (Data & API Specs), Thành viên 2 (AI & RAG Architecture)
+> **Chủ trì hoàn thiện**: Đặng Quang Huy  
+> **Đóng góp kỹ thuật**: Dương Xuân Vinh (Data & API Specs), Hoàng Quốc Dũng (AI & RAG Architecture)
 
 ---
 
@@ -48,7 +48,7 @@ Campus 24/7 là hệ thống trợ lý học vụ AI đa tác tử tích hợp c
 ---
 
 ## 4. Kiến trúc Dữ liệu & Hợp đồng API (Data & API Specs)
-*(Được đóng góp bởi Thành viên 1)*
+*(Được đóng góp bởi Dương Xuân Vinh)*
 
 ### 4.1. Entity Schema
 - **Ticket**: `id`, `student_id`, `category` (lookup | action | complaint), `status` (open | pending_officer | resolved), `priority`, `summary`, `created_at`.
@@ -62,7 +62,7 @@ Campus 24/7 là hệ thống trợ lý học vụ AI đa tác tử tích hợp c
 ---
 
 ## 5. Kiến trúc AI, Luồng RAG & Guardrails
-*(Được đóng góp bởi Thành viên 2)*
+*(Được đóng góp bởi Hoàng Quốc Dũng)*
 
 ### 5.1. Luồng RAG & Chống ảo giác
 - **Indexing**: Văn bản quy chế được chuẩn hóa định dạng Markdown/Text, phân đoạn (chunking 500 tokens, overlap 50 tokens), gán metadata văn bản.

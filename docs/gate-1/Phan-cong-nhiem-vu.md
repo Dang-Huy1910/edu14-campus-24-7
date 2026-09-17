@@ -4,19 +4,20 @@
 
 ---
 
-## 1. Cơ cấu Phân vai & Trách nhiệm Chuyên môn
+## 1. Cơ cấu Phân chia Trách nhiệm Nhóm
 
-Để phát huy tối đa thế mạnh chuyên môn của từng thành viên, dự án phân chia thành 4 mảng trách nhiệm độc lập nhưng phối hợp chặt chẽ:
+Để chuẩn bị tốt nhất cho dự án, các thành viên đảm nhận các mảng công việc chuyên trách độc lập nhưng phối hợp chặt chẽ:
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
 │                      CAMPUS 24/7 - TEAM EDU-14                         │
 ├───────────────────┬────────────────────┬───────────────────────────────┤
-│ Thành viên 1 (SE) │ Thành viên 2 (AI)  │ Thành viên 3 (SE + AI)        │
-│ UI/UX & Specs     │ AI & RAG Logic     │ Product Lead & PRD Core       │
+│ Dương Xuân Vinh   │ Hoàng Quốc Dũng    │ Đặng Quang Huy                │
+│ (02622)           │ (02523)            │ (02962)                       │
+│ UI/UX & Specs     │ AI & RAG Logic     │ PRD & Quản lý Sản phẩm        │
 ├───────────────────┴────────────────────┴───────────────────────────────┤
-│                      Thành viên 4 (SE)                                 │
-│         Repo Architecture, Brief & Hồ sơ Nộp Gate 1                    │
+│ Lê Trung Kiên (02748)                                                  │
+│ Quản trị Repo, Brief 1 trang & Hồ sơ Nộp Gate 1                        │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -24,7 +25,7 @@
 
 ## 2. Chi tiết Nhiệm vụ & Deliverables Từng Thành viên
 
-### 👤 Thành viên 1: Kỹ sư Giao diện & Đặc tả Kỹ thuật (Software Engineer)
+### 👤 Dương Xuân Vinh (02622 | Discord: `dv1600`)
 * **Lĩnh vực phụ trách**: Thiết kế Trải nghiệm Người dùng (UI/UX) và Đặc tả Kỹ thuật Hệ thống/Dữ liệu.
 * **Nhiệm vụ cụ thể**:
   1. **Thiết kế Wireframe & UI Flow**:
@@ -47,7 +48,7 @@
 
 ---
 
-### 👤 Thành viên 2: Kỹ sư Trí tuệ Nhân tạo (AI Engineer)
+### 👤 Hoàng Quốc Dũng (02523 | Discord: `adventurous_flamingo_43907`)
 * **Lĩnh vực phụ trách**: Kiến trúc Mô hình, Luồng Xử lý Dữ liệu Tri thức (RAG), Cơ chế Ra quyết định (Agentic Decision) và Quản trị AI Log.
 * **Nhiệm vụ cụ thể**:
   1. **Thiết kế Kiến trúc RAG (Retrieval-Augmented Generation)**:
@@ -71,7 +72,7 @@
 
 ---
 
-### 👤 Thành viên 3: Kỹ sư Tích hợp & Quản lý Sản phẩm (Lead Product & Integration)
+### 👤 Đặng Quang Huy (02962 | Discord: `danghuy1910`)
 * **Lĩnh vực phụ trách**: Định hướng Sản phẩm, Đặc tả Yêu cầu Nghiệp vụ (PRD), Luồng phối hợp Người - Máy (Human-in-the-loop) và Hợp nhất Tài liệu.
 * **Nhiệm vụ cụ thể**:
   1. **Xây dựng Yêu cầu Sản phẩm Cốt lõi**:
@@ -80,7 +81,7 @@
   2. **Thiết kế Luồng Tương tác Hợp nhất (State Flow)**:
      - Làm rõ luồng trạng thái từ lúc Sinh viên chat $\rightarrow$ Agent nhận diện intent $\rightarrow$ Yêu cầu Sinh viên bấm Xác nhận $\rightarrow$ Gọi API lưu cơ sở dữ liệu $\rightarrow$ Báo Cán bộ tiếp nhận.
   3. **Tổng hợp & Hoàn thiện PRD (`02-prd.md`)**:
-     - Tiếp nhận đóng góp về AI Logic từ Thành viên 2 và Data/API Specs từ Thành viên 1.
+     - Tiếp nhận đóng góp về AI Logic từ Hoàng Quốc Dũng và Data/API Specs từ Dương Xuân Vinh.
      - Hợp nhất, chuẩn hóa thuật ngữ, rà soát tính logic và hoàn thiện văn bản `docs/gate-1/02-prd.md`.
 * **Tài liệu tham khảo chính**:
   - `docs/reference/EDU-14-Gate-1-Plan.md` (Mục 2: Cấu trúc PRD chuẩn)
@@ -91,7 +92,7 @@
 
 ---
 
-### 👤 Thành viên 4: Kỹ sư Hệ thống & Điều phối Dự án (System & Project Coordinator)
+### 👤 Lê Trung Kiên (02748 | Discord: `kien5258`)
 * **Lĩnh vực phụ trách**: Quản trị Cấu trúc Kho lưu trữ (Repository Architecture), Bản tóm tắt Dự án (Brief 1 trang), Tổng hợp Hồ sơ và Điều phối Nộp Gate 1.
 * **Nhiệm vụ cụ thể**:
   1. **Quản trị Repository & Hệ sinh thái Kỹ thuật**:
@@ -118,13 +119,13 @@
 
 | Hạng mục | Tài liệu đầu ra | Người phụ trách chính | Trạng thái |
 | :--- | :--- | :--- | :---: |
-| **01. Brief Đề tài** | `docs/gate-1/01-brief.md` | Thành viên 4 | Đang soạn thảo |
-| **02. Đặc tả Sản phẩm (PRD)** | `docs/gate-1/02-prd.md` | Thành viên 3 *(phối hợp TV 1 & TV 2)* | Đang soạn thảo |
-| **03. Wireframe & UI Flow** | `docs/gate-1/03-ui-flow.md` + Figma | Thành viên 1 | Đang thực hiện |
-| **04. Kiến trúc AI & RAG** | Đóng góp vào `02-prd.md` | Thành viên 2 | Đang thực hiện |
-| **05. Hệ thống AI Log** | `ai-logs/README.md` & `template.md` | Thành viên 2 *(hỗ trợ bởi TV 4)* | Đã dựng khung |
-| **06. Quản trị Kho lưu trữ** | Git Repo, `.gitignore`, Issues | Thành viên 4 | Hoàn thành |
-| **07. Điều phối & Nộp bài** | `docs/gate-1/README.md` & Checklist | Thành viên 4 | Sẵn sàng |
+| **01. Brief Đề tài** | `docs/gate-1/01-brief.md` | Lê Trung Kiên | Đang soạn thảo |
+| **02. Đặc tả Sản phẩm (PRD)** | `docs/gate-1/02-prd.md` | Đặng Quang Huy *(phối hợp Vinh & Dũng)* | Đang soạn thảo |
+| **03. Wireframe & UI Flow** | `docs/gate-1/03-ui-flow.md` + Figma | Dương Xuân Vinh | Đang thực hiện |
+| **04. Kiến trúc AI & RAG** | Đóng góp vào `02-prd.md` | Hoàng Quốc Dũng | Đang thực hiện |
+| **05. Hệ thống AI Log** | `ai-logs/README.md` & `template.md` | Hoàng Quốc Dũng *(hỗ trợ bởi Kiên)* | Đã dựng khung |
+| **06. Quản trị Kho lưu trữ** | Git Repo, `.gitignore`, Issues | Lê Trung Kiên | Hoàn thành |
+| **07. Điều phối & Nộp bài** | `docs/gate-1/README.md` & Checklist | Lê Trung Kiên | Sẵn sàng |
 
 ---
 

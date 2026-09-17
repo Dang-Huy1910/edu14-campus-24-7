@@ -1,7 +1,7 @@
 # Tài liệu Luồng Giao diện & Wireframe (UI Flow)
 
 > **Dự án**: Campus 24/7 – Trợ lý AI Vận hành Học vụ 24/7  
-> **Chủ trì**: Thành viên 1 (Kỹ sư Giao diện & Đặc tả Kỹ thuật)  
+> **Chủ trì**: Dương Xuân Vinh  
 > **Figma Link**: *(Cập nhật link Figma với quyền Anyone with link can view tại đây)*
 
 ---
