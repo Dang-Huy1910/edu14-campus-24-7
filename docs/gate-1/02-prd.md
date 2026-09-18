@@ -50,14 +50,175 @@ Campus 24/7 là hệ thống trợ lý học vụ AI đa tác tử tích hợp c
 ## 4. Kiến trúc Dữ liệu & Hợp đồng API (Data & API Specs)
 *(Được đóng góp bởi Dương Xuân Vinh)*
 
-### 4.1. Entity Schema
-- **Ticket**: `id`, `student_id`, `category` (lookup | action | complaint), `status` (open | pending_officer | resolved), `priority`, `summary`, `created_at`.
-- **StudentContext**: `mssv`, `full_name`, `email`, `cohort`, `faculty`.
+### 4.1. Quy ước chung
+- Đây là **mock contract cho Gate 1**, chỉ dùng dữ liệu giả lập; chưa kết nối cơ sở dữ liệu hoặc hệ thống học vụ thật.
+- Các trạng thái ticket chuẩn: `open` → `pending_officer` → `resolved`.
+- `category`: `lookup` (tra cứu), `action` (yêu cầu dịch vụ), `complaint` (khiếu nại).
+- `priority`: `low` | `normal` | `high`.
+- Thời gian dùng ISO 8601; các mã `SV001`, `TKT-2026-0142` chỉ là mã minh họa.
+- Các API ghi dữ liệu nhận `X-Request-Id` để tránh tạo ticket trùng khi client gửi lại request.
 
-### 4.2. API Endpoints Mock
-- `POST /api/v1/chat`: Nhận tin nhắn sinh viên, trả về câu trả lời RAG hoặc đề xuất hành động.
-- `POST /api/v1/tickets/confirm`: Xác nhận và lưu trữ ticket vào cơ sở dữ liệu.
-- `GET /api/v1/officer/tickets`: Lấy danh sách ticket theo bộ lọc và mức độ ưu tiên.
+### 4.2. Entity Schema
+
+#### `Ticket`
+
+| Trường | Kiểu | Mô tả |
+|---|---|---|
+| `id` | string | Mã ticket, ví dụ `TKT-2026-0142` |
+| `student_id` | string | Mã sinh viên minh họa, ví dụ `SV001` |
+| `session_id` | string | Phiên chat tạo ra ticket |
+| `category` | enum | `lookup` \| `action` \| `complaint` |
+| `status` | enum | `open` \| `pending_officer` \| `resolved` |
+| `priority` | enum | `low` \| `normal` \| `high` |
+| `summary` | string | Tóm tắt ngắn nội dung cần xử lý |
+| `handover_reason` | string? | Lý do cần cán bộ tiếp nhận |
+| `assigned_officer_id` | string? | Cán bộ được phân công |
+| `created_at` / `updated_at` | datetime | Thời điểm tạo và cập nhật |
+
+#### `StudentContext`
+
+| Trường | Kiểu | Mô tả |
+|---|---|---|
+| `student_id` | string | ID nội bộ minh họa |
+| `mssv` | string | MSSV giả lập, không dùng MSSV thật |
+| `full_name` | string | Tên hiển thị giả lập |
+| `email` | string | Email giả lập |
+| `cohort` | string | Khóa học |
+| `faculty` | string | Khoa/chương trình |
+| `is_demo` | boolean | Luôn `true` trong dữ liệu Gate 1 |
+
+#### `Session`
+
+| Trường | Kiểu | Mô tả |
+|---|---|---|
+| `id` | string | ID phiên chat |
+| `student_id` | string | Sinh viên sở hữu phiên |
+| `channel` | enum | `student_portal` |
+| `status` | enum | `active` \| `handover` \| `closed` |
+| `started_at` / `last_activity_at` | datetime | Thời điểm bắt đầu và hoạt động gần nhất |
+| `handover_ticket_id` | string? | Ticket liên quan sau khi chuyển cán bộ |
+
+#### `OfficerLog`
+
+| Trường | Kiểu | Mô tả |
+|---|---|---|
+| `id` | string | ID bản ghi audit |
+| `ticket_id` | string | Ticket được tác động |
+| `officer_id` | string | Cán bộ giả lập thực hiện thao tác |
+| `action` | enum | `assign` \| `reply` \| `status_change` \| `resolve` |
+| `from_status` / `to_status` | enum? | Trạng thái trước/sau thao tác |
+| `note` | string? | Ghi chú hoặc nội dung phản hồi |
+| `created_at` | datetime | Thời điểm ghi audit |
+
+### 4.3. API Mock Contracts
+
+#### `POST /api/v1/chat`
+
+Nhận câu hỏi của sinh viên và trả về câu trả lời dựa trên nguồn hoặc đề xuất bước tiếp theo.
+
+```json
+{
+  "session_id": "SES-2026-0007",
+  "student_id": "SV001",
+  "message": "Em có thể đặt phòng học sau 18:00 không?"
+}
+```
+
+```json
+{
+  "session_id": "SES-2026-0007",
+  "answer": "Có thể đặt phòng học đến 22:00, tùy tình trạng chỗ trống.",
+  "intent": "lookup",
+  "citations": [{"title": "Sổ tay sinh viên 2026", "page": 12}],
+  "suggested_action": "check_room_availability",
+  "requires_confirmation": false,
+  "requires_handover": false
+}
+```
+
+#### `POST /api/v1/tickets`
+
+Tạo ticket sau khi sinh viên đã xem và bấm xác nhận trong Confirmation Modal. Client không được gọi endpoint này nếu `confirmed` chưa là `true`.
+
+```json
+{
+  "session_id": "SES-2026-0007",
+  "student_id": "SV001",
+  "category": "action",
+  "summary": "Đặt phòng học sau 18:00",
+  "priority": "high",
+  "confirmed": true
+}
+```
+
+```json
+{
+  "ticket": {
+    "id": "TKT-2026-0142",
+    "status": "open",
+    "priority": "high",
+    "created_at": "2026-09-18T10:43:00+07:00"
+  }
+}
+```
+
+#### `POST /api/v1/handover`
+
+Chuyển một phiên chat sang hàng đợi cán bộ trong tình huống nhạy cảm hoặc khi AI không đủ cơ sở trả lời.
+
+```json
+{
+  "session_id": "SES-2026-0007",
+  "student_id": "SV001",
+  "reason": "Cần cán bộ xác nhận quyền đặt phòng",
+  "priority": "high",
+  "confirmed": true
+}
+```
+
+```json
+{
+  "ticket_id": "TKT-2026-0142",
+  "status": "pending_officer",
+  "message": "Yêu cầu đã được chuyển tới cán bộ hỗ trợ."
+}
+```
+
+#### `GET /api/v1/officer/tickets`
+
+Trả về danh sách ticket cho Staff Dashboard.
+
+Query hỗ trợ: `status`, `priority`, `category`, `search`, `page`, `page_size`.
+
+```json
+{
+  "items": [
+    {
+      "id": "TKT-2026-0142",
+      "student_id": "SV001",
+      "summary": "Đặt phòng học sau 18:00",
+      "category": "action",
+      "priority": "high",
+      "status": "pending_officer"
+    }
+  ],
+  "total": 1,
+  "page": 1,
+  "page_size": 20
+}
+```
+
+### 4.4. Lỗi và chuyển trạng thái
+
+| HTTP | Mã lỗi | Khi nào xảy ra |
+|---:|---|---|
+| 400 | `INVALID_REQUEST` | Thiếu trường hoặc sai kiểu dữ liệu |
+| 404 | `SESSION_NOT_FOUND` / `TICKET_NOT_FOUND` | Không tìm thấy phiên hoặc ticket |
+| 409 | `DUPLICATE_REQUEST` | `X-Request-Id` đã được xử lý |
+| 409 | `INVALID_STATUS_TRANSITION` | Chuyển trạng thái không hợp lệ |
+| 422 | `CONFIRMATION_REQUIRED` | Gọi API ghi dữ liệu khi chưa xác nhận |
+
+Luồng tối thiểu: tạo ticket ở `open`; gọi `/handover` chuyển sang `pending_officer`; cán bộ phản hồi hoặc hoàn tất xử lý thì chuyển sang `resolved`.
 
 ---
 

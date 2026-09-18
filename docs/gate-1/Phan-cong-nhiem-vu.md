@@ -120,8 +120,8 @@
 | Hạng mục | Tài liệu đầu ra | Người phụ trách chính | Trạng thái |
 | :--- | :--- | :--- | :---: |
 | **01. Brief Đề tài** | `docs/gate-1/01-brief.md` | Lê Trung Kiên | Đang soạn thảo |
-| **02. Đặc tả Sản phẩm (PRD)** | `docs/gate-1/02-prd.md` | Đặng Quang Huy *(phối hợp Vinh & Dũng)* | Đang soạn thảo |
-| **03. Wireframe & UI Flow** | `docs/gate-1/03-ui-flow.md` + Figma | Dương Xuân Vinh | Đang thực hiện |
+| **02. Đặc tả Sản phẩm (PRD)** | `docs/gate-1/02-prd.md` | Đặng Quang Huy *(phối hợp Vinh & Dũng)* | Chờ chủ trì rà soát |
+| **03. Wireframe & UI Flow** | `docs/gate-1/03-ui-flow.md` + Figma | Dương Xuân Vinh | Sẵn sàng bàn giao |
 | **04. Kiến trúc AI & RAG** | Đóng góp vào `02-prd.md` | Hoàng Quốc Dũng | Đang thực hiện |
 | **05. Hệ thống AI Log** | `ai-logs/README.md` & `template.md` | Hoàng Quốc Dũng *(hỗ trợ bởi Kiên)* | Đã dựng khung |
 | **06. Quản trị Kho lưu trữ** | Git Repo, `.gitignore`, Issues | Lê Trung Kiên | Hoàn thành |
