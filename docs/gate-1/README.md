@@ -10,10 +10,12 @@
 
 Dưới đây là danh mục 4 deliverables bắt buộc của Gate 1 cùng tài liệu phân công nhiệm vụ:
 
+Tài liệu nền tảng bổ sung: [BRD — Yêu cầu nghiệp vụ Campus 24/7](00-brd.md) (bản dự thảo tổng hợp từ hồ sơ hiện có; gồm mục tiêu, phạm vi, quy tắc nghiệp vụ, tiêu chí nghiệm thu và các điểm cần xác nhận).
+
 | STT | Deliverable | Tài liệu đính kèm | Người phụ trách chính | Trạng thái |
 |:---:|:---|:---|:---|:---:|
-| **1** | **Brief 1 trang** | [01-brief.md](01-brief.md) | Lê Trung Kiên | Sẵn sàng hoàn thiện |
-| **2** | **Product Requirement Document (PRD)** | [02-prd.md](02-prd.md) | Đặng Quang Huy *(phối hợp Vinh & Dũng)* | Chờ chủ trì rà soát |
+| **1** | **Brief 1 trang** | [01-brief.md](01-brief.md) | Lê Trung Kiên | Đã hoàn thành |
+| **2** | **Product Requirement Document (PRD)** | [02-prd.md](02-prd.md) | Đặng Quang Huy *(phối hợp Vinh & Dũng)* |  Đã hoàn thành |
 | **3** | **Wireframe & UI Flow** | [03-ui-flow.md](03-ui-flow.md) & [Assets](assets/) | Dương Xuân Vinh | Sẵn sàng bàn giao |
 | **4** | **AI Log Setup** | [ai-logs/README.md](../../ai-logs/README.md) & [Template](../../ai-logs/template.md) | Hoàng Quốc Dũng | Đã thiết lập |
 | ⭐ | **Phân công Nhiệm vụ** | [Phan-cong-nhiem-vu.md](Phan-cong-nhiem-vu.md) | Cả nhóm (4 thành viên) | Hoàn tất |
@@ -26,9 +28,8 @@ Dưới đây là danh mục 4 deliverables bắt buộc của Gate 1 cùng tài
 - [x] Đã cấu hình `.gitignore` chặn rò rỉ `.env` và API keys bí mật.
 - [x] Cấu trúc thư mục chuẩn `docs/gate-1/`, `docs/reference/`, `ai-logs/`.
 - [x] Đã có file phân công nhiệm vụ chuyên môn rõ ràng cho 4 thành viên.
-- [ ] Brief dự án giới hạn đúng 1 trang A4.
-- [ ] PRD đầy đủ Persona, User Stories, Acceptance Criteria và Metrics.
-- [ ] Wireframe/UI Flow thể hiện đủ 2 vai trò (Sinh viên & Cán bộ) kèm link xem công khai. *(Kiên xác minh lần cuối bằng Incognito.)*
-- [ ] AI Log có ít nhất 1–2 bản ghi thực tế trong quá trình chuẩn bị Gate 1.
-- [ ] Đại diện nhóm thực hiện gõ lệnh `/gate submit` đúng hạn.
-
+- [x] Brief dự án giới hạn đúng 1 trang A4.
+- [x] PRD đầy đủ Persona, User Stories, Acceptance Criteria và Metrics.
+- [x] Wireframe/UI Flow thể hiện đủ 2 vai trò (Sinh viên & Cán bộ) kèm link xem công khai. *(Kiên xác minh lần cuối bằng Incognito.)*
+- [x] AI Log có ít nhất 1–2 bản ghi thực tế trong quá trình chuẩn bị Gate 1.
+- [x] Đại diện nhóm thực hiện gõ lệnh `/gate submit` đúng hạn.
